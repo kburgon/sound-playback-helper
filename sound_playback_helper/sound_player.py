@@ -7,7 +7,7 @@ from os.path import isfile, join
 class SoundPlayer(object):
     def __init__(self, path='Sounds/'):
         self.root_path = path
-        self.all_sounds = []
+        self.all_sounds = self.list_sounds()
         self.current_index = 0
 
     def list_sounds(self):
