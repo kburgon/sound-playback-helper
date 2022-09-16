@@ -21,7 +21,7 @@ class SoundPlayer(object):
 
     def play_rotated_sound(self):
         if self.all_sounds == []:
-            raise Exception('No sounds found in directory')
+            raise Exception('No sounds found in directory ' + self.root_path)
         if self.current_index == len(self.all_sounds):
             self.current_index = 0
         sound = self.all_sounds[self.current_index]
