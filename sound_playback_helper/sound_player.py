@@ -7,7 +7,6 @@ from os.path import isfile, join
 class SoundPlayer(object):
     def __init__(self, path='Sounds/'):
         self.root_path = path
-        self.all_sounds = self.list_sounds()
         self.current_index = 0
 
     def list_sounds(self):
@@ -20,11 +19,12 @@ class SoundPlayer(object):
         play(song)
 
     def play_rotated_sound(self):
-        if self.all_sounds == []:
+        all_sounds = self.list_sounds()
+        if all_sounds == []:
             raise Exception('No sounds found in directory ' + self.root_path)
-        if self.current_index == len(self.all_sounds):
+        if self.current_index == len(all_sounds):
             self.current_index = 0
-        sound = self.all_sounds[self.current_index]
+        sound = all_sounds[self.current_index]
         self.current_index = 0
         self.play(sound)
         self.current_index += 1
